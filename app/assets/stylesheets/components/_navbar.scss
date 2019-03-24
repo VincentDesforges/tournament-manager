@@ -1,12 +1,17 @@
-.navbar-lewagon {
+.navbar-rails-tournament {
   justify-content: space-between;
   background: white;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-rails-tournament .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-rails-tournament .navbar-brand img {
   width: 40px;
+}
+
+.navToggleBtn {
+  font-size: 22px;
+  padding-top: 9px;
 }
