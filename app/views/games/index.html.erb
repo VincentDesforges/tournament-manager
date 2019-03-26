@@ -2,6 +2,8 @@
 <p>views/games/index</p>
 <ul>
   <% @games.each do |game| %>
-    <li><%= link_to game.title, game_path(game) %></li>
+    <li><%= link_to game.title, game_path(game) %> <%= link_to "Edit", edit_game_path(game) %> <%= link_to "Delete", game_path(game), method: :delete, data: { confirm: "Are you sure you wish to delete this game?"} %></li>
   <% end %>
 </ul>
+
+<h2><%= link_to "Add game", new_game_path %></h2>
