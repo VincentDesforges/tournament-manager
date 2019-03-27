@@ -1,3 +1,10 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<h2>All tournaments (old and new)</h2>
+<ul>
+  <% @tournaments.each do |tournament| %>
+    <li><%= link_to tournament.name, tournament_path(tournament) %></li>
+  <% end %>
+</ul>
+
 <%= link_to "See all our games!", games_path %>
