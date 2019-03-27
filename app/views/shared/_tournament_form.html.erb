@@ -1,0 +1,7 @@
+<%= simple_form_for @tournament do |f| %>
+  <%= f.input :name %>
+  <%= f.input :date, as: :date, order: [:day, :month, :year] %>
+  <%= f.input :max_players %>
+  <%= f.input :address %>
+  <%= f.submit %>
+<% end %>

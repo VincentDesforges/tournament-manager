@@ -1,3 +1,18 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<h2>All tournaments (old and new)</h2>
+<ul>
+  <%# Here we are testing the condition outside loop to avoid re-evaluating each time %>
+  <% if can? :create, Tournament %>
+    <% @tournaments.each do |tournament| %>
+      <li><%= link_to tournament.name, tournament_path(tournament) %> <%= link_to "Edit", edit_tournament_path(tournament) %> <%= link_to "Delete", tournament_path(tournament), method: :delete, data: { confirm: "Are you sure you wish to delete this tournament?"} %></li>
+    <% end %>
+    <h2><%= link_to "Add tournament", new_tournament_path %></h2>
+  <% else %>
+    <% @tournaments.each do |tournament| %>
+      <li><%= link_to tournament.name, tournament_path(tournament) %></li>
+    <% end %>
+  <% end %>
+</ul>
+
 <%= link_to "See all our games!", games_path %>
