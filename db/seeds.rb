@@ -1,6 +1,7 @@
 # Clear tables
 puts "=====Starting Seed====="
 puts "Clearing database..."
+Event.destroy_all
 User.destroy_all
 Game.destroy_all
 Tournament.destroy_all
@@ -57,7 +58,26 @@ tourney2.save!
 sleep(2)
 
 # Events: ---------------------------------------------------
-puts "Adding Events?????..."
+puts "Adding Events..."
+allGames = Game.all
+Event.create!({
+  tournament: tourney1,
+  game: allGames[0]
+})
+Event.create!({
+  tournament: tourney1,
+  game: allGames[1]
+})
+
+Event.create!({
+  tournament: tourney2,
+  game: allGames[1]
+})
+Event.create!({
+  tournament: tourney2,
+  game: allGames[2]
+})
+
 # Matches: --------------------------------------------------
 puts "Adding Matches?????..."
 puts "=====End of Seed====="
