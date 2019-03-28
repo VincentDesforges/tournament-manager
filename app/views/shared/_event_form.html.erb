@@ -1,0 +1,4 @@
+<%= simple_form_for [@tournament, @event] do |f| %>
+  <%= f.input :game_id, label: 'Add game', collection: @games %>
+  <%= f.submit 'Add Game' %>
+<% end %>

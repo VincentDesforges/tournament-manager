@@ -4,6 +4,8 @@ class TournamentsController < ApplicationController
   load_and_authorize_resource 
 
   def show
+    @event = Event.new
+    @games = Game.all
   end
 
   def new
