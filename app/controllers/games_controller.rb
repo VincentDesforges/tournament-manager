@@ -43,7 +43,6 @@ class GamesController < ApplicationController
   
   def game_params
     params.require(:game).permit(:title, :description)
-    raise 'error'
   end
 
   def find_game
