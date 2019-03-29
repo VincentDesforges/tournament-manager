@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :games
   resources :tournaments, except: [:index] do
-    resources :events, only: [:create, :destroy]
+    resources :events, only: [:create, :destroy, :show]
   end
 end

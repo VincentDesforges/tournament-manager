@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :tournament
   belongs_to :game
+  has_many :matches, dependent: :destroy
 
   validates :tournament, presence: true #Event needs tournament
   validates :game, presence: true #Event needs game

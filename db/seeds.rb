@@ -79,5 +79,18 @@ Event.create!({
 })
 
 # Matches: --------------------------------------------------
-puts "Adding Matches?????..."
+puts "Adding Matches..."
+allEvents = Event.all
+
+Match.create!({
+  player_1: User.first,
+  player_2: User.last,
+  event: allEvents[1]
+})
+
+Match.create!({
+  player_1: User.first,
+  player_2: User.last,
+  event: allEvents[2]
+})
 puts "=====End of Seed====="
