@@ -1,0 +1,10 @@
+<h1><%= @tournament.name %>: <%= @event.game.title %></h1>
+
+<h2>All matches:</h2>
+<ul>
+  <% @event.matches.each do |match| %>
+    <li><%= match.player_1.email %> vs <%= match.player_2.email %></li>
+  <% end %>
+</ul>
+
+<h3><%= link_to "Tournament page", tournament_path(@tournament) %></h3>
