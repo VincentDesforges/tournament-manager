@@ -12,13 +12,15 @@ puts "Adding Users..."
 User.create!({
   email:    "vince@vince.com",
   password: "123456",
-  admin:    true
+  admin:    true,
+  name: "Admin Vincent"
 })
 
 User.create!({
   email:    "vince2@vince.com",
   password: "123456",
-  admin:    false
+  admin:    false,
+  name: "Simple Vincent"
 })
 
 # Games: ----------------------------------------------------

@@ -1,4 +1,4 @@
 <h1>Match page</h1>
 
-<h2><%= @match.player_1.email %> vs <%= @match.player_2.email %></h2>
+<h2><%= @match.player_1.name %> vs <%= @match.player_2.name %></h2>
 <%= link_to 'Return to Event', tournament_event_path(@match.event.tournament,@match.event) %>
