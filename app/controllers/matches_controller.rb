@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
-  def show #shown on tournament's page
-    
+  def show
+    @match = Match.find(params[:id])
   end
 
   def create #to create a match associated to an event

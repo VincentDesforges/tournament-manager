@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :tournaments, except: [:index] do
     resources :events, only: [:create, :destroy, :show]
   end
+  resources :matches, only: [:show]
 end

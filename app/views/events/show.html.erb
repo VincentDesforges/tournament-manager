@@ -3,7 +3,7 @@
 <h2>All matches:</h2>
 <ul>
   <% @event.matches.each do |match| %>
-    <li><%= match.player_1.email %> vs <%= match.player_2.email %></li>
+    <li><%= match.player_1.email %> vs <%= match.player_2.email %> <%= link_to 'Details', match_path(match) %></li>
   <% end %>
 </ul>
 
