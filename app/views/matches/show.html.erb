@@ -1,0 +1,13 @@
+<h1>Match page</h1>
+<%# Data to inject in page %>
+<% player_1_name = @match.player_1 ? @match.player_1.name : "?" %>
+<% player_2_name = @match.player_2 ? @match.player_2.name : "?" %>
+<% score_player_1 = @match.player_1 ? @match.score_player_1 : 0 %>
+<% score_player_2 = @match.player_2 ? @match.score_player_2 : 0 %>
+<%# Data to inject in page %>
+
+<h3><%= link_to 'Leave this match', leave_match_path(@match), method: :put %></h3>
+<h2><%= player_1_name %> vs <%= player_2_name %></h2>
+<h3>Scores:</h3>
+<p><strong><%= score_player_1 %> : <%= score_player_2 %></strong></p>
+<%= link_to 'Return to Event', tournament_event_path(@match.event.tournament,@match.event) %>

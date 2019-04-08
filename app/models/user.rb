@@ -11,18 +11,25 @@ class User < ApplicationRecord
   has_many :player_2_matches, class_name: 'Match', foreign_key: :player_2_id
   has_many :player_1s, through: :player_2_matches
   has_many :player_2s, through: :player_1_matches
-end
 
-# TESTING IN CONSOLE
-# v = User.first
-# v2 = User.last
-# mat = Match.new
-# mat.player_1 = v
-# mat.player_2 = v2
-# mat.event = Event.first
-# mat.save
-# mat
-# mat.player_1
-# mat.player_2
-# v.player_1_matches
-# v.player_2s
+  def total_points
+    (self.games_played - self.victories - self.defeats) + self.victories * 3
+  end
+
+  def matches
+    # Merging the player_1 and the player_2 in a way that can be scoped
+    self.player_1_matches.or(self.player_2_matches)
+  end
+
+
+  def update_matches_played_info
+    # find all matches completed
+    self.games_played = self.matches.finished.count
+    # find number of victories
+    self.victories = self.matches.victories(self).count
+    # find number of defeats
+    self.defeats = self.matches.defeats(self).count
+    # save the updated user
+    self.save
+  end
+end

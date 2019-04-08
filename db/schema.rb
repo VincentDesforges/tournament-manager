@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_172351) do
+ActiveRecord::Schema.define(version: 2019_04_05_084013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,13 +32,14 @@ ActiveRecord::Schema.define(version: 2019_03_28_172351) do
   end
 
   create_table "matches", force: :cascade do |t|
-    t.integer "score"
-    t.boolean "finished"
+    t.boolean "finished", default: false
     t.bigint "player_1_id"
     t.bigint "player_2_id"
     t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "score_player_1", default: 0
+    t.integer "score_player_2", default: 0
     t.index ["event_id"], name: "index_matches_on_event_id"
     t.index ["player_1_id"], name: "index_matches_on_player_1_id"
     t.index ["player_2_id"], name: "index_matches_on_player_2_id"
@@ -70,6 +71,10 @@ ActiveRecord::Schema.define(version: 2019_03_28_172351) do
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.string "country"
+    t.string "name", default: "New User"
+    t.integer "games_played", default: 0
+    t.integer "victories", default: 0
+    t.integer "defeats", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

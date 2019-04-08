@@ -7,6 +7,7 @@ class Ability
       can :manage, :all
     else
       can :read, :all
+      can [:create, :join_match, :leave_match], Match
     end
 
   end
