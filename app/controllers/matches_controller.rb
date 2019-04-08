@@ -1,8 +1,7 @@
 class MatchesController < ApplicationController
-  
-  # Add cancancan permissions
   before_action :find_match, only: [:show, :join_match, :leave_match]
   before_action :find_event, only: [:create]
+  load_and_authorize_resource
 
   def show
   end
