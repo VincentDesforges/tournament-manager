@@ -1,9 +1,12 @@
 <h1><%= @tournament.name %>: <%= @event.game.title %></h1>
-
+<h3><%= link_to 'Challenge someone to a match!', matches_path(event: @event), method: :post %></h3>
 <h2>All matches:</h2>
 <ul>
   <% @event.matches.each do |match| %>
-    <li><%= match.player_1.name %> vs <%= match.player_2.name %> <%= link_to 'Details', match_path(match) %></li>
+    <% player_1_name = match.player_1 ? match.player_1.name : "?" %>
+    <% player_2_name = match.player_2 ? match.player_2.name : "?" %>
+
+    <li><%= player_1_name %> vs <%= player_2_name %> <%= link_to 'Details', match_path(match) %> <%= link_to 'Join Match', join_match_path(match), method: :put %></li>
   <% end %>
 </ul>
 
