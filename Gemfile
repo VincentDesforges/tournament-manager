@@ -9,6 +9,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'cancancan', '~> 2.0'
 gem 'geocoder'
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
