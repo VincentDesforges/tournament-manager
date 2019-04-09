@@ -13,15 +13,19 @@ User.create!({
   email:    "vince@vince.com",
   password: "123456",
   admin:    true,
-  name: "Admin Vincent"
+  name: "Admin Vincent",
+  address: 'Hong Kong'
 })
+sleep(2)
 
 User.create!({
   email:    "vince2@vince.com",
   password: "123456",
   admin:    false,
-  name: "Simple Vincent"
+  name: "Simple Vincent",
+  address: 'Sydney Australia'
 })
+sleep(2)
 
 # Games: ----------------------------------------------------
 puts "Adding Games..."
