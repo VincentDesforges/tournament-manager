@@ -8,7 +8,9 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_pack_tag 'application', media: 'all' %>
+
   </head>
 
   <body>
@@ -17,7 +19,8 @@
       <%= render 'shared/flashes' %>
       <%= yield %>
     </div>
+    
     <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->
-    <%= javascript_pack_tag "application" %>    <!-- from app/javascript/packs/application.js -->
+    <%= javascript_pack_tag "application", media: 'all' %>    <!-- from app/javascript/packs/application.js -->
   </body>
 </html>

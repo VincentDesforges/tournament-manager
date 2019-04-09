@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   # IMPORTANT Notes: 
   # Each user may be player_1 or player_2 in several matches
   # player_1_match refers to the matches where the user is player_1
