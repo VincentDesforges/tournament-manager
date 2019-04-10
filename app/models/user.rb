@@ -24,6 +24,17 @@ class User < ApplicationRecord
     self.player_1_matches.or(self.player_2_matches)
   end
 
+  def yet_to_play
+    self.matches.where(finished: false)
+  end
+
+  def tournaments # Is this correct place to put this?
+    Tournament.joins(events: [{matches: [:player_1, :player_2]}]).where("player_1_id = ? OR player_2_id = ?", self.id, self.id)
+  end
+
+  def games_played_in_tournament(tournament) # Is this correct place to put this?
+    Match.joins(event: :tournament).where("player_1_id = ? OR player_2_id = ?", self.id, self.id).where(tournaments: { id: tournament.id })
+  end
 
   def update_matches_played_info
     # find all matches completed
