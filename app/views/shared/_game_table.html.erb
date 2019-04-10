@@ -7,7 +7,7 @@
   <tbody>
     <% event.matches.each do |match| %>
       <tr>
-        <th scope="row"><%= match.player_1.name %> - <%= match.score_player_1 %> VS <%= match.score_player_2 %> - <%= match.player_2.name %><p style="color: red; display: inline"><%= match.finished ? "Live": nil %></p></th>
+        <th scope="row"><%= match.player_1.name %> - <%= match.score_player_1 %> VS <%= match.score_player_2 %> - <%= match.player_2.name %><p style="color: red; display: inline"><%= match.finished ? nil: "Live" %></p></th>
       </tr>
     <% end %>
   </tbody>
