@@ -1,0 +1,24 @@
+<table class="table table-sm table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Postion</th>
+      <th scope="col">Name</th>
+      <th scope="col">Played</th>
+      <th scope="col">Victories</th>
+      <th scope="col">Defeats</th>
+      <th scope="col">Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @leaders.each_with_index do |leader, index| %>
+      <tr>
+        <th scope="row"><%= index %></th>
+        <td><%= leader.name %></td>
+        <td><%= leader.games_played %></td>
+        <td><%= leader.victories %></td>
+        <td><%= leader.defeats %></td>
+        <td><%= leader.total_points %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -6,6 +6,11 @@
   <li>Longitude: <%= @tournament.longitude %></li>
 </ul>
 
+<h2>Game Tables:</h2>
+<% @tournament.events.each do |event| %>
+  <%= render 'shared/game_table', event: event %>
+<% end %>
+
 <h2>Planned games:</h2>
 
 <% if can? :create, Event %>

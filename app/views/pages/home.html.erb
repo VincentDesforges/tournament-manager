@@ -1,6 +1,10 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <h2>All tournaments (old and new)</h2>
+
+<h3>Leaderboard</h3>
+<%= render 'shared/leader_board' %>
+
 <ul>
   <%# Here we are testing the condition outside loop to avoid re-evaluating each time %>
   <% if can? :create, Tournament %>
